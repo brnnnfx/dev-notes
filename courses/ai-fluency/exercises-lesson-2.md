@@ -19,8 +19,8 @@ You're using AI to help analyze a large dataset for a research paper.
 	- Plagiarism
 	- Over confidence in hallucinations or partial truths may result in future papers that cite it being based on incorrect information
 
-Exercise - Discuss something I am already familiar with
-⏲️ Time-boxed to 5 minutes
+Exercise - Discuss something I am already familiar with  
+⏲️ Time-boxed to 5 minutes  
 🤖 Model = mistral-small-2506
 
 I am keeping a record of this conversation to observe how my prompting improves with more practice.
@@ -83,8 +83,8 @@ Another idea is to use prompts or constraints to spark creativity. For example, 
 Have you tried any of these techniques before, or is there a specific type of drawing or writing that feels most appealing to you right now?
 ```
 
-Exercise - Learn something new
-⏲️ Time-boxed to 5 minutes
+Exercise - Learn something new  
+⏲️ Time-boxed to 5 minutes  
 🤖 Model = mistral-small-2506
 
 💬 Brennan
@@ -226,17 +226,17 @@ print("Accuracy:", accuracy)        # How many mistakes it made
 ---
 
 #### **1. Importing Tools**
-```python
+python
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-```
+
 - **`DecisionTreeClassifier`**: This is a simple tool that creates rules like “if color is red and texture is smooth, then it’s an apple.” It’s called a “decision tree” because it makes decisions (rules) in a tree-like structure.
 - **`accuracy_score`**: This is a way to measure how many mistakes the model made. It compares the model’s guesses to the correct answers and tells you the percentage of correct guesses.
 
 ---
 
 #### **2. Training Data (`X_train` and `y_train`)**
-```python
+python
 X_train = [
     [0, 0],  # red, smooth (apple)
     [0, 0],  # red, smooth (apple)
@@ -255,41 +255,41 @@ y_train = [0, 0, 0, 1, 1, 1]  # 0=apple, 1=orange
 ---
 
 #### **3. Creating the Model**
-```python
+python
 model = DecisionTreeClassifier()
-```
+
 - This line creates a new, empty decision tree model. It’s like a blank recipe book waiting to be filled with rules.
 
 ---
 
 #### **4. Training the Model (ERM in Action!)**
-```python
+python
 model.fit(X_train, y_train)
-```
+
 - **`fit`**: This is the command that trains the model. It looks at all the training data (`X_train` and `y_train`) and tries to find the best rules to minimize mistakes.
 - **ERM in action**: The model is trying different rules (e.g., “if color is red, then apple; if color is orange, then orange”) and picking the one that makes the fewest mistakes on the training data. This is **Empirical Risk Minimization**—minimizing mistakes on the data you already have.
 
 ---
 
 #### **5. Testing the Model**
-```python
+python
 X_test = [
     [0, 0],  # red, smooth (should be apple)
     [1, 1],  # orange, bumpy (should be orange)
     [0, 1],  # red, bumpy (should be apple)
 ]
 y_test = [0, 1, 0]  # Expected labels for the test data
-```
+
 - **`X_test`**: New examples the model hasn’t seen before. These are like the “test pictures” you show the child after teaching them.
 - **`y_test`**: The correct answers for these new examples.
 
 ---
 
 #### **6. Making Predictions and Checking Accuracy**
-```python
+python
 predictions = model.predict(X_test)
 accuracy = accuracy_score(y_test, predictions)
-```
+
 - **`predict`**: The model uses the rules it learned during training to guess the labels for the new examples in `X_test`.
 - **`accuracy_score`**: This compares the model’s guesses (`predictions`) to the correct answers (`y_test`) and tells you how many mistakes it made. For example, if it got 2 out of 3 correct, the accuracy is `0.66` (66%).
 
